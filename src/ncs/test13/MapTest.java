@@ -30,14 +30,17 @@ public class MapTest {
 
 		Inventory[] in = new Inventory[3];
 		int k = 0;
+		
 		Set<String> keyset = map.keySet();
 		Iterator<String> keyIterator = keyset.iterator();
+		
+		
 		while (keyIterator.hasNext()) {
 			String key = keyIterator.next();
 			Inventory iy = map.get(key);
 			in[k] = iy;
 			k++;
-
+		//Iterator 사용법 외우기 
 			System.out.println(iy.toString());
 		}
 

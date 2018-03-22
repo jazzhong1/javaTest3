@@ -13,7 +13,7 @@ public class ArrayTest {
 		for (int i = 0; i < array.length; i++) {
 			for (int j = 0; j < array[i].length; j++) {
 				hap+=array[i][j];
-			}
+			}	//
 			
 		}
 		double avg=hap/(array.length*array[0].length);

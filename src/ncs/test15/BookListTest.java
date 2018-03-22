@@ -44,7 +44,7 @@ public class BookListTest {
 		FileWriter fw = null;
 		
 		try {
-			file=new File("c:\\books.dat");
+			file=new File("books.dat");
 			fw=new FileWriter(file);
 			
 			for (Book b: list) {
@@ -78,7 +78,7 @@ public class BookListTest {
 		BufferedReader br=null;
 		
 		try {
-			file=new File("c:\\books.dat");
+			file=new File("books.dat");
 			fr=new FileReader(file);
 			br=new BufferedReader(fr);
 			

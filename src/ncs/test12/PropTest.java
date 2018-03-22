@@ -11,13 +11,9 @@ import java.util.StringTokenizer;
 public class PropTest {
 	public static void main(String[] args) {
 		
-		//파일경로명:C:\\data.xml 에 했엇음
 
-		Properties prop1 = new Properties();
-		Properties prop2 = new Properties();
-		Properties prop3 = new Properties();
-		Properties prop4 = new Properties();
-		Properties prop5 = new Properties();
+		Properties prop1 = new Properties();	//자체가 배열임
+												//키값만 넣어주면됨
 
 		Fruit fruit1 = new Fruit("1=apple", 1200, 3);
 		Fruit fruit2 = new Fruit("2=banana", 2500, 2);
@@ -28,40 +24,34 @@ public class PropTest {
 		String str = fruit1.toString();
 		prop1.setProperty("1", str);
 		str = fruit2.toString();
-		prop2.setProperty("2", str);
+		prop1.setProperty("2", str);
 		str = fruit3.toString();
-		prop3.setProperty("3", str);
+		prop1.setProperty("3", str);
 		str = fruit4.toString();
-		prop4.setProperty("4", str);
+		prop1.setProperty("4", str);
 		str = fruit5.toString();
-		prop5.setProperty("5", str);
+		prop1.setProperty("5", str);
 
-		ArrayList<Properties> ps = new ArrayList<Properties>();
-		ps.add(prop1);
-		ps.add(prop2);
-		ps.add(prop3);
-		ps.add(prop4);
-		ps.add(prop5);
+		
 
 		PropTest propTest = new PropTest();
 
-		propTest.fileSave(ps);
-		propTest.fileOpen();
+		propTest.fileSave(prop1);
+		propTest.fileOpen(prop1);
 
 	}
 
-	public void fileSave(ArrayList<Properties> ps) {
+	public void fileSave(Properties ps) {
 		File file = null;
 		FileWriter fw = null;
 		try {
-			file = new File("c:\\data.xml"); // 경로 안정해주셔서 집 컴퓨터로 정함
+			file = new File("data.xml"); // 경로 안정해주셔서 집 컴퓨터로 정함
 												// 컴파일시 경로에 만들어줘야함
 
 			fw = new FileWriter(file);
-			for (int i = 0; i < ps.size(); i++) {
-				ps.get(i).store(fw, "frute");
+			
+				ps.store(fw, "frute");
 
-			}
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -75,31 +65,29 @@ public class PropTest {
 
 	}
 
-	public void fileOpen() {
+	public void fileOpen(Properties ps) {
 
-		Properties properties = new Properties();
 		Fruit[] fruits = new Fruit[5];
 		File file = null;
 		FileReader fr = null;
 		BufferedReader br = null;
 
 		try {
-			file = new File("c:\\data.xml");
+			file = new File("data.xml");
 			fr = new FileReader(file);
 			br = new BufferedReader(fr);
 
-			properties.load(br);
+			ps.load(br);
 
 			int k = 0;
-			for (String key : properties.stringPropertyNames()) {
-				String value = properties.getProperty(key);
+			for (String key : ps.stringPropertyNames()) {	//키값가져오기
+				String value = ps.getProperty(key);
 
 				Fruit fruit = new Fruit();
 				StringTokenizer st = new StringTokenizer(value, " ");
 				fruit.setName(st.nextToken());
 				fruit.setPrice(Integer.parseInt(st.nextToken()));
 				fruit.setQuantity(Integer.parseInt(st.nextToken()));
-				// fruits.add(fruit);
 				fruits[k] = fruit;
 				k++;
 			}
