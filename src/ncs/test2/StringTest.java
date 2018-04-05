@@ -12,7 +12,7 @@ public class StringTest {
 		 String[] st=str.split(",");
 		 
 		 int k=0;
-		 for (String i:st) {
+		 for (String i:st) {	//for~each문
 			 data[k]=Double.parseDouble(i);
 			 sum=sum+data[k];
 		}

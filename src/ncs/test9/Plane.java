@@ -3,11 +3,12 @@ package ncs.test9;
 public abstract class Plane {
 	
 	private String planeName;
-	private int fuel;
+	private int fuel;	//size
 	public Plane() {
 		
 	}
 	public Plane(String planeName,int fuel) {
+		//초기화
 		
 	}
 	

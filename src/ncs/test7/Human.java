@@ -37,6 +37,7 @@ public abstract class Human {
 	
 	public Human(String name, int age, int height, int weight) {
 	}
+	//this.안해줌
 	
 
 	@Override
